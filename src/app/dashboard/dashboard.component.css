@@ -1,0 +1,21 @@
+
+
+.form-group input{
+    border: none;
+}
+.card{
+    background-color:  #172b4d !important;
+}
+.form-group{
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 10px 10px black;
+}
+.form-group i,
+.form-group input::placeholder{
+    color: #adb5bd !important;
+}
+.child{
+    padding: 100px;
+    margin-left: 150px;
+}

@@ -1,0 +1,22 @@
+body{
+    background-color: #172b4d !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-group input{
+    border: none;
+}
+.card{
+    background-color:  #172b4d !important;
+}
+.form-group{
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 10px 10px black;
+}
+.form-group i,
+.form-group input::placeholder{
+    color: #adb5bd !important;
+}

@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-white text-center mb-4">MY BANK</h1>
+    <div class="card col-5 mx-auto px-4 py-5">
+        <form>
+          <h1 class="text-white text-center mb-2">MY BANK</h1>
+          <h6 class="text-white text-center">{{aim}}</h6>
+            <div class="form-group d-flex mb-3 px-3">
+              <i class="fa-solid fa-user my-auto"></i>
+              <input [(ngModel)]="acno" type="text" id="acno1" name="a" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [placeholder]="account">
+            </div>
+            <div class="form-group d-flex mb-3 px-3">
+              <i class="fa-solid fa-lock my-auto"></i>
+              <input [(ngModel)]="pswd"  type="password" id="pswd1" name="b" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+    
+            <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+            <div class="text-center fs-5 mt-3 text-white">
+              <a routerLink="">Forgot password</a> or <a routerLink="/Register">Sign up</a>
+            </div>
+          </form>
+
+    </div>
+</div>
