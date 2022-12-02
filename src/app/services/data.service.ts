@@ -5,7 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  //current username
   currentuser='';
+
+  //curent account number
+  currentAcno="";
 
   constructor() { }
    //database
@@ -41,6 +45,7 @@ export class DataService {
     if(acno in userDetails){
       if(pswd==userDetails[acno]['password']){
         this.currentuser=userDetails[acno]['username']
+        this.currentAcno=acno;
         return true;
       }
       else{
@@ -95,10 +100,10 @@ export class DataService {
       if(pswd==userDetails[acno]['password']){
         userDetails[acno]['balance']-=amount;
         userDetails[acno]['transaction'].push({
-          Type:'Credit',
+          Type:'debit',
           Amount:amount
         })
-        console.log(userDetails);
+    
         
         return userDetails[acno]['balance']
       }
@@ -113,5 +118,8 @@ export class DataService {
 
     }
 
+  }
+  getTransaction(acno:any){
+    return this.userDetails[acno]['transaction']
   }
 }
