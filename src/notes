@@ -80,5 +80,17 @@ data sharingonly one direction
              1)Reactive Forms
              formGroup,array,control
              for advanced validation
-             import from Reactive Forms Module(in app.module.ts)      
+             import from Reactive Forms Module(in app.module.ts)  
+
+    7)Local storage
+         -setItem - To store data in local storage
+         -getItem - To get data from local storage
+         -removeItem - To remove data from local storage
+
+    8) parent child communication
+       parent -> child communication
+       child -> parent communication
+
+       eg:
+       dashboard -> parent -@                  
 

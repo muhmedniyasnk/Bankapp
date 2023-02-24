@@ -5,22 +5,27 @@
 
     <div class="card col-5 mx-auto px-4 py-5">
         <form [formGroup]="registrationForm">
-          <h1 class="text-white text-center mb-2">MY BANK</h1>
+          <h1 class="text-white text-center mb-2">INTRALESS BANK</h1>
             <div class="form-group d-flex mb-3 px-3">
               <i class="fa-solid fa-lock my-auto"></i>
               <input formControlName="uname"  type="text" id="pswd1" name="uname" class="form-control" id="exampleInputPassword" placeholder="user name">
             </div>
+            <div *ngIf="this.registrationForm.get('uname')?.errors && this.registrationForm.get('uname')?.touched" style="color: red;">Invalid username</div>
             <div class="form-group d-flex mb-3 px-3">
                 <i class="fa-solid fa-user my-auto"></i>
                 <input formControlName="acno" type="text" id="acno1" name="acno" class="form-control" id="exampleInputEmail1" placeholder="Accound number">
               </div>
-            <div class="form-group d-flex mb-3 px-3">
+              <div *ngIf="this.registrationForm.get('acno')?.errors && this.registrationForm.get('acno')?.touched" style="color: red;">Invalid account number</div>
+           
+              <div class="form-group d-flex mb-3 px-3">
                 <i class="fa-solid fa-lock my-auto"></i>
                 <input formControlName="pswd"  type="password" id="pswd1" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
+              <div *ngIf="this.registrationForm.get('pswd')?.errors && this.registrationForm.get('pswd')?.touched" style="color: red;">Invalid password</div>
+
     
             <button type="submit" class="btn btn-primary"  (click)="register()">Register</button>
-            <div class="text-center fs-6 mt-3 text-white">
+            <div class="text-center fs-5 mt-3 text-white">
                 <a routerLink="">Sign in</a>
               </div>
           </form>

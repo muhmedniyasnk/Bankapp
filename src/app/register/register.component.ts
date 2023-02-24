@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -13,13 +13,14 @@ export class RegisterComponent implements OnInit {
   pswd="";
   uname="";
 
+
   constructor(private fb:FormBuilder, private ds:DataService,private router:Router) { }
 
   //registration model
   registrationForm = this.fb.group({
-    acno:[''],
-    uname:[''],
-    pswd:['']
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-B0-9]*')]]
   })
 
   //control pass to ts to html file
@@ -29,20 +30,30 @@ export class RegisterComponent implements OnInit {
   register(){
     console.log(this.registrationForm);
     
-    // alert("Registered")
+  
+    
     var uname=this.registrationForm.value.uname;
     var acno=this.registrationForm.value.acno;
     var pswd=this.registrationForm.value.pswd;
+    if(this.registrationForm.valid){
 
-    const result=this.ds.register(acno,uname,pswd);
-    if(result){
-      alert('register successful')
-      this.router.navigateByUrl('')
+       
+      // console.log(this.registrationForm.get('uname')?.errors);
+      this.ds.register(acno,uname,pswd)
+      .subscribe((result:any)=>{
+        alert(result.message);
+        this.router.navigateByUrl('')
+      },
+      result=>{
+        alert(result.error.message)
+      }
+      )
+
+      
     }
-    else{
-      alert('User already registered');
-      this.router.navigateByUrl('register')
-    }
+   
+
+ 
   }
 
 }

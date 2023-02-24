@@ -1,0 +1,8 @@
+
+
+<div *ngIf="item" style="text-align: center;">
+    <h3>Are You sure to delete this account {{item}}?</h3>
+    <button class="btn btn-success m-2">Yes</button>
+    <button class="btn btn-danger" (click)="cancel()">No</button>
+
+</div>
